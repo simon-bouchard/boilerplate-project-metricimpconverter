@@ -2,9 +2,27 @@
 
 const expect = require('chai').expect;
 const ConvertHandler = require('../controllers/convertHandler.js');
+const bodyParser = require('body-parser');
 
 module.exports = function (app) {
+
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({ extended: true }));
   
-  let convertHandler = new ConvertHandler();
+	let convertHandler = new ConvertHandler();
+
+	app.get('/api/convert', (req, res) => {
+		let input = req.query.input;
+		console.log(input)
+
+		let initNum = convertHandler.getNum(input);
+		let initUnit = convertHandler.getUnit(input);
+		let returnUnit = convertHandler.getReturnUnit(initUnit);
+		let returnNum = convertHandler.convert(initNum, initUnit);
+		let returnString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
+
+		res.json({initNum: initNum, initUnit: initUnit, returnNum: returnNum, returnUnit: returnUnit, string: returnString});
+
+	})
 
 };
