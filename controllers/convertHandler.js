@@ -22,7 +22,7 @@ function ConvertHandler() {
     result = num1 / num2;
   }
 
-  return result;
+  return (Number(result.toFixed(5)));
 };
 
   
@@ -83,7 +83,7 @@ function ConvertHandler() {
 
 	let result = map[initUnit]
 
-    return result;
+    return (Number(result.toFixed(5)));
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
