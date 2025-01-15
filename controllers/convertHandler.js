@@ -83,7 +83,11 @@ function ConvertHandler() {
 
 	let result = map[initUnit]
 
-    return Number(result.toFixed(5));
+	if (result) {
+		result = Number(result.toFixed());
+	}
+
+    return result;
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
