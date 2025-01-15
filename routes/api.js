@@ -28,7 +28,7 @@ module.exports = function (app) {
 			return res.send('invalid unit');
 		}
  
-		res.json({initNum: initNum, initUnit: initUnit, returnNum: returnNum, returnUnit: returnUnit, string: returnString});
+		res.json({initNum: (Number(initNum.toFixed())), initUnit: initUnit, returnNum: (Number(returnNum.toFixed())), returnUnit: returnUnit, string: returnString});
 
 	})
 
