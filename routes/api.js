@@ -26,10 +26,11 @@ module.exports = function (app) {
 			return res.send('invalid number');
 		} else if (returnUnit == 'invalid unit') {
 			return res.send('invalid unit');
-		}
+		} else {
  
-		res.json({initNum: (Number(initNum.toFixed())), initUnit: initUnit, returnNum: (Number(returnNum.toFixed())), returnUnit: returnUnit, string: returnString});
+		res.json({initNum: initNum, initUnit: initUnit, returnNum: returnNum, returnUnit: returnUnit, string: returnString});
 
+		}
 	})
 
 };
