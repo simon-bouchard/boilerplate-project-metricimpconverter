@@ -30,7 +30,7 @@ function ConvertHandler() {
 
 	const regex = new RegExp('[a-zA-Z]+$')
 	
-    let result = input.match(regex)[0];	
+    let result = (input.match(regex)[0]).toLowerCase();	
 	if (result == "l") result = 'L'
     
     return result;
@@ -39,7 +39,7 @@ function ConvertHandler() {
   this.getReturnUnit = function(initUnit) {
 	  
 	const map = {
-		l: 'gal',
+		L: 'gal',
 		gal: 'L',
 		lbs: 'kg',
 		kg: 'lbs',
@@ -49,7 +49,7 @@ function ConvertHandler() {
 
     let result;
     
-    return map[initUnit.toLowerCase()] || 'invalid unit';
+    return map[initUnit] || 'invalid unit';
   };
 
   this.spellOutUnit = function(unit) {
