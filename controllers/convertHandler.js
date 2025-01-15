@@ -31,6 +31,7 @@ function ConvertHandler() {
 	const regex = new RegExp('[a-zA-Z]+$')
 	
     let result = input.match(regex)[0];	
+	if (result == "l") result = 'L'
     
     return result;
   };
@@ -84,7 +85,7 @@ function ConvertHandler() {
 	let result = map[initUnit]
 
 	if (result) {
-		result = Number(result.toFixed());
+		result = Number(result.toFixed(5));
 	}
 
     return result;
