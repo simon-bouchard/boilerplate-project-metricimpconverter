@@ -90,8 +90,8 @@ function ConvertHandler() {
 	initUnit = this.spellOutUnit(initUnit);
 	returnUnit = this.spellOutUnit(returnUnit);
 
-    let result = initNum + " " + initUnit + " converts to " + returnNum + returnUnit;
-    
+    let result = initNum + " " + initUnit + " converts to " + returnNum + " " + returnUnit;
+	   
     return result;
   };
   

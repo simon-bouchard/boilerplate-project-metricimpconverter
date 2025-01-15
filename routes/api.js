@@ -13,7 +13,6 @@ module.exports = function (app) {
 
 	app.get('/api/convert', (req, res) => {
 		let input = req.query.input;
-		console.log(input)
 
 		let initNum = convertHandler.getNum(input);
 		let initUnit = convertHandler.getUnit(input);
@@ -21,6 +20,14 @@ module.exports = function (app) {
 		let returnNum = convertHandler.convert(initNum, initUnit);
 		let returnString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
 
+		if ((initNum == 'invalid number') && (returnUnit == 'invalid unit')) {
+			return res.send('invalid number and unit');
+		} else if (initNum == 'invalid number') {
+			return res.send('invalid number');
+		} else if (returnUnit == 'invalid unit') {
+			return res.send('invalid unit');
+		}
+ 
 		res.json({initNum: initNum, initUnit: initUnit, returnNum: returnNum, returnUnit: returnUnit, string: returnString});
 
 	})
